@@ -1,0 +1,29 @@
+# Global hyperparameters that will be used by default
+hyperparameters:
+  epochs: 250
+  batch_size: 10
+  learning_rate: 0.001
+
+# Model definitions
+model_shallow:
+  layers: [1, 64, 64, 1]
+
+model_deep:
+  layers: [1, 128, 128, 64, 64, 1]
+  # Override global hyperparameters for this specific model
+  hyperparameters:
+    epochs: 250
+    learning_rate: 0.001
+    # This model will still use the global batch_size of 10
+
+model_deep_slower_lr:
+  layers: [1, 128, 128, 64, 64, 1]
+  # Override global hyperparameters for this specific model
+  hyperparameters:
+    epochs: 250
+    learning_rate: 0.0005
+    # This model will still use the global batch_size of 10
+
+model_very_deep:
+  layers: [1, 256, 256, 128, 128, 64, 64, 1]
+  # This model will use all the global hyperpar
